@@ -1,0 +1,2 @@
+class Adoptado < ApplicationRecord
+end

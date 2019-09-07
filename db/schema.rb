@@ -10,13 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_30_064444) do
+ActiveRecord::Schema.define(version: 2019_09_07_170122) do
 
   create_table "adoptados", force: :cascade do |t|
     t.integer "edad"
     t.string "tamagno"
     t.string "genero"
     t.boolean "esterilizacion"
+    t.string "telefono"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "busco_mi_duenios", force: :cascade do |t|
+    t.string "edad"
+    t.string "tamanio"
+    t.string "string"
+    t.string "genero"
+    t.string "raza"
     t.string "telefono"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

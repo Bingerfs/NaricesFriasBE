@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :calendarios
   resources :busco_mi_duenios
   resources :historial_adoptados
   resources :adoptados

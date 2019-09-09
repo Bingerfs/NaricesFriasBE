@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_30_064444) do
+ActiveRecord::Schema.define(version: 2019_09_09_010318) do
 
   create_table "adoptados", force: :cascade do |t|
     t.integer "edad"
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 2019_08_30_064444) do
     t.string "genero"
     t.boolean "esterilizacion"
     t.string "telefono"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "calendarios", force: :cascade do |t|
+    t.string "titulo"
+    t.text "descripcion"
+    t.date "fecha"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

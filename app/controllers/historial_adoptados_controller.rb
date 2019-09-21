@@ -1,4 +1,6 @@
 class HistorialAdoptadosController < ApplicationController
+  devise_token_auth_group :member, contains: [:voluntario, :admin]
+  before_action :authenticate_member!
   before_action :set_historial_adoptado, only: [:show, :update, :destroy]
 
   # GET /historial_adoptados

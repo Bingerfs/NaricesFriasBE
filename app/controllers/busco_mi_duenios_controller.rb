@@ -1,4 +1,6 @@
 class BuscoMiDueniosController < ApplicationController
+  devise_token_auth_group :member, contains: [:voluntario, :admin]
+  before_action :authenticate_member!
   before_action :set_busco_mi_duenio, only: [:show, :update, :destroy]
 
   # GET /busco_mi_duenios

@@ -1,6 +1,6 @@
 class AdoptadosController < ApplicationController
   devise_token_auth_group :member, contains: [:voluntario, :admin]
-  before_action :authenticate_member!
+  before_action :authenticate_member!, except: [:show, :index]
   before_action :set_adoptado, only: [:show, :update, :destroy]
 
   # GET /adoptados

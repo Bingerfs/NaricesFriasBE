@@ -1,6 +1,6 @@
 class CalendariosController < ApplicationController
-  devise_token_auth_group :member, contains: [:voluntario, :admin]
-  before_action :authenticate_member!
+  #devise_token_auth_group :member, contains: [:voluntario, :admin]
+  #before_action :authenticate_member!
   before_action :set_calendario, only: [:show, :update, :destroy]
 
   # GET /calendarios
@@ -48,6 +48,6 @@ class CalendariosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def calendario_params
-      params.require(:calendario).permit(:titulo, :descripcion, :fecha)
+      params.require(:calendario).permit(:titulo, :descripcion, :fecha, :lugar, :hora)
     end
 end

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  mount_devise_token_auth_for 'Voluntario', at: 'auth'
+  mount_devise_token_auth_for 'Voluntario', at: 'auth', controllers: {
+    registrations:  'voluntarios/registrations'
+  }
   mount_devise_token_auth_for "Admin", at: 'admin/auth'
   resources :calendarios
   resources :busco_mi_duenios

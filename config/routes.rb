@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :busco_mi_duenios
   resources :historial_adoptados
   resources :adoptados
+  resources :buscados
+  resources :extraviados
   devise_scope :admin do
     delete '/auth', to: 'devise_token_auth/registrations#destroy'
     post '/auth', to: 'devise_token_auth/registrations#create'

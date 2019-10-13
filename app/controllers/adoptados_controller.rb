@@ -1,6 +1,6 @@
 class AdoptadosController < ApplicationController
-  devise_token_auth_group :member, contains: [:voluntario, :admin]
-  before_action :authenticate_member!
+  #devise_token_auth_group :member, contains: [:voluntario, :admin]
+  #before_action :authenticate_member!
   before_action :set_adoptado, only: [:show, :update, :destroy]
 
   # GET /adoptados
@@ -12,6 +12,7 @@ class AdoptadosController < ApplicationController
 
   # GET /adoptados/1
   def show
+    @adoptado = set_adoptado
     render json: @adoptado
   end
 
@@ -37,6 +38,7 @@ class AdoptadosController < ApplicationController
 
   # DELETE /adoptados/1
   def destroy
+    @adoptado = set_adoptado
     @adoptado.destroy
   end
 

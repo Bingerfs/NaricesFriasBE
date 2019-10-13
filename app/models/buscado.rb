@@ -1,0 +1,2 @@
+class Buscado < ApplicationRecord
+end

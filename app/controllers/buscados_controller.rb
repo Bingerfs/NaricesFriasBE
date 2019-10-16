@@ -3,7 +3,6 @@ class BuscadosController < ApplicationController
      # GET /Buscados
   def index
     @buscados = Buscado.all
-
     render json: @buscados
   end
 
@@ -23,6 +22,9 @@ class BuscadosController < ApplicationController
       render json: @buscado.errors, status: :unprocessable_entity
     end
   end
+
+
+
 
   # PATCH/PUT /Buscados/1
   def update
@@ -48,6 +50,6 @@ class BuscadosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def buscado_params
-      params.require(:buscado).permit(:name, :size, :age, :esterilizacion, :contact)
+      params.require(:buscado).permit(:name, :size, :age, :esterilizacion, :contact, :gender, :description)
     end
 end

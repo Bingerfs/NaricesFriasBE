@@ -50,6 +50,6 @@ class AdoptadosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def adoptado_params
-      params.require(:adoptado).permit(:edad, :tamagno, :genero, :esterilizacion, :telefono)
+      params.require(:adoptado).permit(:edad, :tamagno, :genero, :esterilizacion, :telefono, :description)
     end
 end

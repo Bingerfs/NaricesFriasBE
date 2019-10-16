@@ -48,6 +48,6 @@ class ExtraviadosController < ApplicationController
 
    # Only allow a trusted parameter "white list" through.
    def extraviado_params
-     params.require(:extraviado).permit(:name, :size, :age, :esterilizacion, :contact)
+     params.require(:extraviado).permit(:size, :age, :gender, :esterilizacion, :contact, :description)
    end
 end

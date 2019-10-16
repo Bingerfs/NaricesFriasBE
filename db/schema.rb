@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_09_153126) do
+ActiveRecord::Schema.define(version: 2019_10_14_020627) do
 
   create_table "admins", force: :cascade do |t|
     t.string "provider", default: "email", null: false
@@ -43,13 +43,14 @@ ActiveRecord::Schema.define(version: 2019_10_09_153126) do
   end
 
   create_table "adoptados", force: :cascade do |t|
-    t.integer "edad"
+    t.string "edad"
     t.string "tamagno"
     t.string "genero"
     t.boolean "esterilizacion"
     t.string "telefono"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
   end
 
   create_table "buscados", force: :cascade do |t|
@@ -57,9 +58,11 @@ ActiveRecord::Schema.define(version: 2019_10_09_153126) do
     t.string "size"
     t.string "age"
     t.boolean "esterilizacion"
-    t.integer "contact"
+    t.string "contact"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
+    t.string "gender"
   end
 
   create_table "busco_mi_duenios", force: :cascade do |t|
@@ -89,6 +92,7 @@ ActiveRecord::Schema.define(version: 2019_10_09_153126) do
     t.integer "contact"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
   end
 
   create_table "historial_adoptados", force: :cascade do |t|

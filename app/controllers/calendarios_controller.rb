@@ -50,4 +50,15 @@ class CalendariosController < ApplicationController
     def calendario_params
       params.require(:calendario).permit(:titulo, :descripcion, :fecha, :lugar, :hora)
     end
+
+    #def events_to_calendar
+    #  calendario
+    #  meses = ["01", "02"]
+    #  for mes in meses
+    #    tmp_events = Calendario.all.# filtras fecha = mes%
+    #    mes.mes = mes
+    #    mes.contenido.add(tmp_events)
+    #    calendario.add(mes)
+    #  render json: calendario 
+      
 end

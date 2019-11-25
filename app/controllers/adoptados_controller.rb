@@ -6,19 +6,21 @@ class AdoptadosController < ApplicationController
   # GET /adoptados
   def index
     @adoptados = Adoptado.all
-
     render json: @adoptados
   end
 
   # GET /adoptados/1
   def show
     @adoptado = set_adoptado
+    puts @adoptado.picture.url
+    # @adoptado[:url] = adoptado.first.picture.url(:medium)
     render json: @adoptado
   end
+ 
 
   # POST /adoptados
   def create
-    @adoptado = Adoptado.new(adoptado_params)
+    @adoptado = Adoptado.create(adoptado_params)
 
     if @adoptado.save
       render json: @adoptado, status: :created, location: @adoptado
@@ -50,6 +52,6 @@ class AdoptadosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def adoptado_params
-      params.require(:adoptado).permit(:edad, :tamagno, :genero, :esterilizacion, :telefono, :description)
+      params.permit(:edad, :tamagno, :genero, :esterilizacion, :telefono, :description, :picture)
     end
 end

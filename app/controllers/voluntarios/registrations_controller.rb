@@ -3,7 +3,25 @@ module Overrides
 class Voluntarios::RegistrationsController < DeviseTokenAuth::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
+  before_action :set_voluntario, only: [:update, :editar, :elim]
+  # GET /voluntarios
+  def index
+    @voluntarios = Voluntario.all
 
+    render json: @voluntarios
+  end
+
+  def modificar
+    if @voluntario.update(adoptado_params)
+      render json: @voluntario
+    else
+      render json: @voluntario.errors, status: :unprocessable_entity
+    end
+  end
+
+  def elim
+    @voluntario.destroy
+  end
   # GET /resource/sign_up
   # def new
   #   super
@@ -46,9 +64,18 @@ class Voluntarios::RegistrationsController < DeviseTokenAuth::RegistrationsContr
   end
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :telefono, :email])
+  end
+
+  def set_voluntario
+    puts "uggggghhghhhhhhhhhhh"
+    @voluntario = Voluntario.find(params[:id])
+  end
+
+  def voluntario_params
+    params.require(:voluntario).permit(:name, :telefono, :email, :id)
+  end
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)

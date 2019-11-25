@@ -1,0 +1,2 @@
+class Extraviado < ApplicationRecord
+end

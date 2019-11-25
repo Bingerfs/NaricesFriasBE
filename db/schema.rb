@@ -10,8 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_09_152807) do
 
+#ActiveRecord::Schema.define(version: 2019_10_09_152807) do
+
+ActiveRecord::Schema.define(version: 2019_10_16_141858) do
   create_table "admins", force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
@@ -43,13 +45,30 @@ ActiveRecord::Schema.define(version: 2019_10_09_152807) do
   end
 
   create_table "adoptados", force: :cascade do |t|
-    t.integer "edad"
+    t.string "edad"
     t.string "tamagno"
     t.string "genero"
     t.boolean "esterilizacion"
     t.string "telefono"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
+    t.string "picture_file_name"
+    t.string "picture_content_type"
+    t.integer "picture_file_size"
+    t.datetime "picture_updated_at"
+  end
+
+  create_table "buscados", force: :cascade do |t|
+    t.string "name"
+    t.string "size"
+    t.string "age"
+    t.boolean "esterilizacion"
+    t.string "contact"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "description"
+    t.string "gender"
   end
 
   create_table "busco_mi_duenios", force: :cascade do |t|
@@ -69,6 +88,17 @@ ActiveRecord::Schema.define(version: 2019_10_09_152807) do
     t.date "fecha"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "extraviados", force: :cascade do |t|
+    t.string "size"
+    t.string "age"
+    t.string "gender"
+    t.boolean "esterilizacion"
+    t.integer "contact"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "description"
   end
 
   create_table "historial_adoptados", force: :cascade do |t|

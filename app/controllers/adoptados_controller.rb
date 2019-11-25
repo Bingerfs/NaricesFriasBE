@@ -1,23 +1,30 @@
 class AdoptadosController < ApplicationController
+
   devise_token_auth_group :member, contains: [:voluntario, :admin]
   before_action :authenticate_member!, except: [:show, :index]
+  #devise_token_auth_group :member, contains: [:voluntario, :admin]
+  #before_action :authenticate_member!
+
   before_action :set_adoptado, only: [:show, :update, :destroy]
 
   # GET /adoptados
   def index
     @adoptados = Adoptado.all
-
     render json: @adoptados
   end
 
   # GET /adoptados/1
   def show
+    @adoptado = set_adoptado
+    puts @adoptado.picture.url
+    # @adoptado[:url] = adoptado.first.picture.url(:medium)
     render json: @adoptado
   end
+ 
 
   # POST /adoptados
   def create
-    @adoptado = Adoptado.new(adoptado_params)
+    @adoptado = Adoptado.create(adoptado_params)
 
     if @adoptado.save
       render json: @adoptado, status: :created, location: @adoptado
@@ -37,6 +44,7 @@ class AdoptadosController < ApplicationController
 
   # DELETE /adoptados/1
   def destroy
+    @adoptado = set_adoptado
     @adoptado.destroy
   end
 
@@ -48,6 +56,6 @@ class AdoptadosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def adoptado_params
-      params.require(:adoptado).permit(:edad, :tamagno, :genero, :esterilizacion, :telefono)
+      params.permit(:edad, :tamagno, :genero, :esterilizacion, :telefono, :description, :picture)
     end
 end

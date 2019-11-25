@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :historial_adoptados
   resources :adoptados
   resources :voluntarios, only: [:update, :show]
+  resources :buscados
+  resources :extraviados
   devise_scope :admin do
     delete '/auth', to: 'devise_token_auth/registrations#destroy'
     post '/auth', to: 'devise_token_auth/registrations#create'

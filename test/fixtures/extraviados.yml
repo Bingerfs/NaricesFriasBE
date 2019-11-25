@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  size: MyString
+  age: MyString
+  gender: MyString
+  esterilizacion: false
+  contact: 1
+
+two:
+  size: MyString
+  age: MyString
+  gender: MyString
+  esterilizacion: false
+  contact: 1

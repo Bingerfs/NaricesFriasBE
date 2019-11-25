@@ -37,6 +37,7 @@ class CalendariosController < ApplicationController
 
   # DELETE /calendarios/1
   def destroy
+    
     @calendario.destroy
   end
 

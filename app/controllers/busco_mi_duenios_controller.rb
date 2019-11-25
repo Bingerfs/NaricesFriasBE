@@ -1,7 +1,7 @@
 class BuscoMiDueniosController < ApplicationController
-  devise_token_auth_group :member, contains: [:voluntario, :admin]
-  before_action :authenticate_member!
-  before_action :set_busco_mi_duenio, only: [:show, :update, :destroy]
+  #devise_token_auth_group :member, contains: [:voluntario, :admin]
+  #before_action :authenticate_member!
+  #before_action :set_busco_mi_duenio, only: [:show, :update, :destroy]
 
   # GET /busco_mi_duenios
   def index
@@ -12,6 +12,7 @@ class BuscoMiDueniosController < ApplicationController
 
   # GET /busco_mi_duenios/1
   def show
+    @busco_mi_duenio = set_busco_mi_duenio
     render json: @busco_mi_duenio
   end
 
@@ -28,6 +29,7 @@ class BuscoMiDueniosController < ApplicationController
 
   # PATCH/PUT /busco_mi_duenios/1
   def update
+    @busco_mi_duenio = set_busco_mi_duenio
     if @busco_mi_duenio.update(busco_mi_duenio_params)
       render json: @busco_mi_duenio
     else
@@ -37,6 +39,7 @@ class BuscoMiDueniosController < ApplicationController
 
   # DELETE /busco_mi_duenios/1
   def destroy
+    @busco_mi_duenio = set_busco_mi_duenio
     @busco_mi_duenio.destroy
   end
 

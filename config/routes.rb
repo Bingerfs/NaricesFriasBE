@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :voluntarios, only: [:update, :show]
   resources :buscados
   resources :extraviados
+  get '/adoptados/:id/download', to: 'adoptados#download', as: :download
   devise_scope :admin do
     delete '/auth', to: 'devise_token_auth/registrations#destroy'
     post '/auth', to: 'devise_token_auth/registrations#create'

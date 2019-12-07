@@ -1,7 +1,7 @@
 class AdoptadosController < ApplicationController
 
-  devise_token_auth_group :member, contains: [:voluntario, :admin]
-  before_action :authenticate_member!, except: [:show, :index]
+  # devise_token_auth_group :member, contains: [:voluntario, :admin]
+  # before_action :authenticate_member!, except: [:show, :index]
   #devise_token_auth_group :member, contains: [:voluntario, :admin]
   #before_action :authenticate_member!
 
@@ -11,6 +11,11 @@ class AdoptadosController < ApplicationController
   def index
     @adoptados = Adoptado.all
     render json: @adoptados
+  end
+
+  def download
+    @adoptado = set_adoptado
+    send_file(@adoptado.picture.path, type: @adoptado.picture_content_type, disposition: 'inline')
   end
 
   # GET /adoptados/1

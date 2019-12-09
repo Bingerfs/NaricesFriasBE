@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_04_132633) do
+#ActiveRecord::Schema.define(version: 2019_12_04_132633) do
+ActiveRecord::Schema.define(version: 2019_12_09_145047) do
 
   create_table "admins", force: :cascade do |t|
     t.string "provider", default: "email", null: false
@@ -57,6 +58,27 @@ ActiveRecord::Schema.define(version: 2019_12_04_132633) do
     t.datetime "picture_updated_at"
   end
 
+  create_table "agradecimientos", force: :cascade do |t|
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "picture_file_name"
+    t.string "picture_content_type"
+    t.integer "picture_file_size"
+    t.datetime "picture_updated_at"
+  end
+
+  create_table "apadrinados", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "picture_file_name"
+    t.string "picture_content_type"
+    t.integer "picture_file_size"
+    t.datetime "picture_updated_at"
+  end
+
   create_table "buscados", force: :cascade do |t|
     t.string "name"
     t.string "size"
@@ -86,6 +108,12 @@ ActiveRecord::Schema.define(version: 2019_12_04_132633) do
     t.date "fecha"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "picture_file_name"
+    t.string "picture_content_type"
+    t.integer "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.string "lugar"
+    t.time "hora"
   end
 
   create_table "extraviados", force: :cascade do |t|

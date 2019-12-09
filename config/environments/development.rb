@@ -6,7 +6,9 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
-  Paperclip.options[:command_path] = 'C:\Program Files\ImageMagick-7.0.8-Q16\convert.exe'
+  # Paperclip.options[:command_path] = 'C:\Program Files\ImageMagick-7.0.8-Q16\convert.exe'
+  Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin'
+
   # Do not eager load code on boot.
   config.eager_load = false
 

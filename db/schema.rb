@@ -10,9 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2019_12_09_145047) do
-#ActiveRecord::Schema.define(version: 2019_12_09_141643) do #ariel
+
   create_table "admins", force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false

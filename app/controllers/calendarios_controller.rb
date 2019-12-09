@@ -10,6 +10,11 @@ class CalendariosController < ApplicationController
     render json: @calendarios
   end
 
+  def download
+    @calendario = set_calendario
+    send_file(@calendario.picture.path, type: @calendario.picture_content_type, disposition: 'inline')
+  end
+
   # GET /calendarios/1
   def show
     render json: @calendario
@@ -49,6 +54,7 @@ class CalendariosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def calendario_params
-      params.require(:calendario).permit(:titulo, :descripcion, :fecha)
+      # params.require(:calendario).permit(:titulo, :descripcion, :fecha, :lugar, :hora, :picture)
+      params.permit(:titulo, :descripcion, :fecha, :lugar, :hora, :picture)
     end
 end

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :apadrinados
   resources :agradecimientos
   resources :extraviados
+  get '/calendarios/:id/download', to: 'calendarios#download'
   get '/adoptados/:id/download', to: 'adoptados#download', as: :download
   get '/apadrinados/:id/download', to: 'apadrinados#download'
   get '/agradecimientos/:id/download', to: 'agradecimientos#download'

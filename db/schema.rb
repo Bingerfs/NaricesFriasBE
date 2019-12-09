@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+#ActiveRecord::Schema.define(version: 2019_12_04_132633) do
 ActiveRecord::Schema.define(version: 2019_12_09_145047) do
 
   create_table "admins", force: :cascade do |t|
@@ -161,6 +162,7 @@ ActiveRecord::Schema.define(version: 2019_12_09_145047) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "telefono"
+    t.boolean "firstSession", default: true
     t.index ["confirmation_token"], name: "index_voluntarios_on_confirmation_token", unique: true
     t.index ["email"], name: "index_voluntarios_on_email", unique: true
     t.index ["reset_password_token"], name: "index_voluntarios_on_reset_password_token", unique: true

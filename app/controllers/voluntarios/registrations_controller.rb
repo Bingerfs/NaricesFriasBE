@@ -3,7 +3,7 @@ module Overrides
 class Voluntarios::RegistrationsController < DeviseTokenAuth::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
-  before_action :set_voluntario, only: [:update, :editar, :elim]
+  before_action :set_voluntario, only: [:editar, :elim, :mostrar, :modificar]
   # GET /voluntarios
   def index
     @voluntarios = Voluntario.all
@@ -12,11 +12,17 @@ class Voluntarios::RegistrationsController < DeviseTokenAuth::RegistrationsContr
   end
 
   def modificar
-    if @voluntario.update(adoptado_params)
+    if @voluntario.update(voluntario_params)
       render json: @voluntario
     else
       render json: @voluntario.errors, status: :unprocessable_entity
     end
+  end
+
+  def mostrar
+    @voluntario = set_voluntario
+    # @adoptado[:url] = adoptado.first.picture.url(:medium)
+    render json: @voluntario
   end
 
   def elim
@@ -71,16 +77,17 @@ class Voluntarios::RegistrationsController < DeviseTokenAuth::RegistrationsContr
   def set_voluntario
     puts "uggggghhghhhhhhhhhhh"
     @voluntario = Voluntario.find(params[:id])
+    puts @voluntario
   end
 
   def voluntario_params
-    params.require(:voluntario).permit(:name, :telefono, :email, :id)
+    params.permit(:name, :telefono, :firstSession, :registration)
   end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    true
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

@@ -9,9 +9,13 @@ Rails.application.routes.draw do
   resources :adoptados
   resources :voluntarios, only: [:update, :show]
   resources :buscados
+  resources :apadrinados
+  resources :agradecimientos
   resources :extraviados
-  # get '/adoptados/:id/download', to: 'adoptados#download', as: :download
-  get '/calendarios/:id/download', to: 'calendarios#download', as: :download
+  get '/calendarios/:id/download', to: 'calendarios#download'
+  get '/adoptados/:id/download', to: 'adoptados#download', as: :download
+  get '/apadrinados/:id/download', to: 'apadrinados#download'
+  get '/agradecimientos/:id/download', to: 'agradecimientos#download'
   devise_scope :admin do
     delete '/auth', to: 'devise_token_auth/registrations#destroy'
     post '/auth', to: 'devise_token_auth/registrations#create'

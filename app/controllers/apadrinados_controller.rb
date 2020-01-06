@@ -1,7 +1,7 @@
 class ApadrinadosController < ApplicationController
 
-    #devise_token_auth_group :member, contains: [:voluntario, :admin]
-    #before_action :authenticate_member!, except: [:show, :index]
+  devise_token_auth_group :member, contains: [:voluntario, :admin]
+  before_action :authenticate_member!, except: [:show, :index, :download]
     #devise_token_auth_group :member, contains: [:voluntario, :admin]
     #before_action :authenticate_member!
   

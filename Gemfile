@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '2.5.5'
 
 gem "paperclip", "~> 5.1"
 
@@ -35,7 +35,8 @@ gem 'rack-cors', :require => 'rack/cors'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'sqlite3' , git: "https://github.com/larskanis/sqlite3-ruby", branch: "add-gemspec"
+  #gem 'sqlite3' , git: "https://github.com/larskanis/sqlite3-ruby", branch: "add-gemspec"
+  gem 'pg', '0.17.1'
 end
 
 group :development do

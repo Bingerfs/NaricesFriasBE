@@ -1,0 +1,2 @@
+class BuscoMiDuenio < ApplicationRecord
+end
